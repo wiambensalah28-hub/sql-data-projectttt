@@ -1,38 +1,27 @@
+/*
+===============================================================================
 
-/*==============================================================================
-Stored Procedure: silver.load_silver
-Schema          : Silver
-Author          : Wiam Bensalah
-Project         : SQL Data Warehouse Project
+Stored Procedure: Load Silver Layer (Bronze --> Silver)
 
-Description:
-This stored procedure loads the Silver layer from the Bronze layer.
+===============================================================================
 
-Main Tasks:
-- Truncate existing data in Silver tables.
-- Transform and clean data from the Bronze layer.
-- Load cleaned data into the Silver layer.
-- Print progress messages for each loading step.
-- Measure and display the execution time of each table.
-- Measure and display the total loading duration.
-- Handle runtime errors using TRY...CATCH.
+Script Purpose:
+    This stored procedure performs the ETL (Extract, Transform, Load) process to
+    populate the 'silver' schema tables from the 'bronze' schema.
 
-Source Tables:
-- bronze.crm_cust_info
-- bronze.crm_prd_info
-- bronze.crm_sales_details
-- bronze.erp_cust_az12
-- bronze.erp_loc_a101
-- bronze.erp_px_cat_g1v2
+Actions Performed:
+    - Truncates Silver tables.
+    - Inserts transformed and cleansed data from Bronze into Silver tables.
 
-Target Tables:
-- silver.crm_cust_info
-- silver.crm_prd_info
-- silver.crm_sales_details
-- silver.erp_cust_az12
-- silver.erp_loc_a101
-- silver.erp_px_cat_g1v2
-==============================================================================*/
+Parameters:
+    None.
+    This stored procedure does not accept any parameters or return any values.
+
+Usage Example:
+    EXEC silver.load_silver;
+
+===============================================================================
+*/
 
 CREATE OR ALTER PROCEDURE silver.load_silver
 AS
